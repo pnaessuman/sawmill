@@ -13,9 +13,9 @@
 ##' @param species character
 ##' @return numeric vector with volume of the trees in cubic metres
 ##' @examples
-##' volume(30:35, 20:25, "fagus_sylvatica")
+##' volume(30:35, 20:25, "Fagus sylvatica")
 ##' @export
-volume <- function(d, h, species = "fagus_sylvatica") {
+volume <- function(d, h, species = "Fagus sylvatica") {
 
   if (!is.numeric(d) | !is.numeric(h)) {
     stop("d and h have to be numeric")
@@ -25,8 +25,9 @@ volume <- function(d, h, species = "fagus_sylvatica") {
     stop("d and h have to have the same length")
   }
 
-  species_list <- c("fagus_sylvatica",
-                    "picea_abies")
+  species_list <- c(fagus_sylvatica = "Fagus sylvatica",
+                    picea_abies = "Picea abies",
+                    pinus_sylvestris = "Pinus sylvestris")
   
   if (!any(species_list == species)) {
     stop("unknown species")
@@ -54,8 +55,19 @@ volume <- function(d, h, species = "fagus_sylvatica") {
       ,k32 = 0.0326
       ,k33 = -0.0045
       )
+    ,pinus_sylvestris = c(
+      k11  = -5.80915
+      ,k12 = 3.387
+      ,k13 = -0.494392
+      ,k21 = 3.67116 
+      ,k22 = -1.83211
+      ,k23 = 0.273999 
+      ,k31 = -0.459282
+      ,k32 = 0.29989
+      ,k33 = -0.0444931
     )
-  cl2 <- species_coefs[[species]]
+    )
+  cl2 <- species_coefs[[names(species_list)[which(species_list == species)]]]
 
   cl1f <- function(d) {
     unname(c(

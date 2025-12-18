@@ -27,7 +27,16 @@ volume <- function(d, h, species = "Fagus sylvatica") {
 
   species_list <- c(fagus_sylvatica = "Fagus sylvatica",
                     picea_abies = "Picea abies",
-                    pinus_sylvestris = "Pinus sylvestris")
+                    pinus_sylvestris = "Pinus sylvestris",
+                    abies_alba = "Abies alba",
+                    larix_decidua = "Larix decidua",
+                    pseudotsuga_menziesii = "Pseudotsuga menziesii",
+                    quercus_robur = "Quercus_robur",
+                    alnus_glutinosa = "Alnus glutinosa",
+                    fraxinus_excelsior = "Fraxinus excelsior",
+                    pinus_cembra = "Pinus cembra",
+                    nonexplicit_broadleaved = "Sonst. LH",
+                    nonexplicit_conifer = "Sonst. NH")
   
   if (!any(species_list == species)) {
     stop("unknown species")
@@ -65,6 +74,39 @@ volume <- function(d, h, species = "Fagus sylvatica") {
       ,k31 = -0.459282
       ,k32 = 0.29989
       ,k33 = -0.0444931
+    )
+    ,abies_alba = c(
+      k11  = -7.41365
+      ,k12 = 3.33667
+      ,k13 = -0.426419
+      ,k21 = 4.00998 
+      ,k22 = -1.39533
+      ,k23 = 0.165198
+      ,k31 = -0.321612
+      ,k32 = 0.14401
+      ,k33 = -0.0165461
+    )
+    ,larix_decidua = c(
+      k11  = -9.26182 
+      ,k12 = 4.75438
+      ,k13 = -0.672495
+      ,k21 = 5.17159 
+      ,k22 = -2.27654 
+      ,k23 = 0.311633
+      ,k31 = -0.555379
+      ,k32 = 0.302799 
+      ,k33 = -0.041251
+    )
+    , pseudotsuga_menziesii = c(
+      k11  = -12.5017
+      ,k12 = 6.62441 
+      ,k13 = -0.911185
+      ,k21 = 7.27277 
+      ,k22 = -3.58346 
+      ,k23 = 0.489149
+      ,k31 = -0.87715
+      ,k32 = 0.515586
+      ,k33 = -0.0714395
     )
   ,quercus_robur = c(
     k11  = -3.06118

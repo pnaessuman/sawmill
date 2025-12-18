@@ -108,7 +108,29 @@ volume <- function(d, h, species = "Fagus sylvatica") {
       ,k32 = 0.515586
       ,k33 = -0.0714395
     )
+  ,quercus_robur = c(
+    k11  = -3.06118
+    ,k12 = 1.45506
+    ,k13 = -0.19992 
+    ,k21 = 1.93898
+    ,k22 = 0.112653
+    ,k23 = -0.165102
+    ,k31 =  0.120127
+    ,k32 =-0.0202543
+    ,k33 =-0.639727   
     )
+  ,alnus_glutinosa = c(
+    k11  =  -5.98031
+      ,k12 = 2.85905 
+      ,k13 =  -0.3374
+      ,k21 = 3.78395 
+      ,k22 = 0.133661
+      ,k23 =- 0.540955
+      ,k31 =0.296957
+      ,k32 = -0.0385165 
+      ,k33 =-1.47316 
+    )
+  
   cl2 <- species_coefs[[names(species_list)[which(species_list == species)]]]
 
   cl1f <- function(d) {
